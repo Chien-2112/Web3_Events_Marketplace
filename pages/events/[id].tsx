@@ -6,7 +6,6 @@ import Identicon from 'react-identicons'
 import { GetServerSidePropsContext, NextPage } from 'next'
 import { BsDot } from 'react-icons/bs'
 import { FaEthereum } from 'react-icons/fa'
-import { getEvent, getTickets } from '@/services/blockchain'
 import { EventStruct, RootState, TicketStruct } from '@/utils/type.dt'
 import { calculateDateDifference, formatDate, getExpiryDate, truncate } from '@/utils/helper'
 import { useAccount } from 'wagmi'
@@ -164,15 +163,15 @@ const Page: NextPage<ComponentProps> = ({ eventData, ticketsData }) => {
 
 export default Page
 
-export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-  const { id } = context.query
-  const eventData: EventStruct = await getEvent(Number(id))
-  const ticketsData: TicketStruct[] = await getTickets(Number(id))
+// export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+//   const { id } = context.query
+//   const eventData: EventStruct = await getEvent(Number(id))
+//   const ticketsData: TicketStruct[] = await getTickets(Number(id))
 
-  return {
-    props: {
-      eventData: JSON.parse(JSON.stringify(eventData)),
-      ticketsData: JSON.parse(JSON.stringify(ticketsData)),
-    },
-  }
-}
+//   return {
+//     props: {
+//       eventData: JSON.parse(JSON.stringify(eventData)),
+//       ticketsData: JSON.parse(JSON.stringify(ticketsData)),
+//     },
+//   }
+// }
