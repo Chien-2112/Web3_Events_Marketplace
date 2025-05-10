@@ -3,7 +3,6 @@ import '@/styles/global.css'
 import 'react-toastify/dist/ReactToastify.css'
 import '@rainbow-me/rainbowkit/styles.css'
 import { useEffect, useState } from 'react'
-import { Providers } from '@/services/provider'
 import type { AppProps } from 'next/app'
 import Header from '@/components/Header'
 import { Provider } from 'react-redux'
@@ -20,7 +19,6 @@ export default function App({ Component, pageProps }: AppProps) {
     return null
   } else {
     return (
-      <Providers pageProps={pageProps}>
         <Provider store={store}>
           <div className="min-h-screen bg-gray-100">
             <Header />
@@ -42,7 +40,6 @@ export default function App({ Component, pageProps }: AppProps) {
             />
           </div>
         </Provider>
-      </Providers>
     )
   }
 }
