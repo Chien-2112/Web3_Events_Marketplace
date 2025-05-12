@@ -118,7 +118,7 @@ contract DappEvents is Ownable, ReentrancyGuard, ERC721 {
 	}
 
 	// FEATURE 3 - DELETE EVENT: ALLOWS THE EVENT OWNER OR CONTRACT OWNER TO DELETE AN EVENT.
-	function deleteEvent(uint256 eventId) public {
+	function deleteEvent(uint256 eventId) public nonReentrant() {
 		require(eventExists[eventId], "Event not found");
 		require(events[eventId].owner == msg.sender || msg.sender == owner(), "Unauthorized entity");
 		require(!events[eventId].paidOut, "Event already paid out");
@@ -130,11 +130,11 @@ contract DappEvents is Ownable, ReentrancyGuard, ERC721 {
 	}
 
 	// FEATURE 4 - GET EVENTS: RETURNS ALL EXISTING EVENTS.
-	function getEvents() public view returns(EventStruct[] memory Events) {
+	function getEvents() public view returns (EventStruct[] memory Events) {
 		uint256 available;
 
-		for(uint256 i = 1; i < _totalEvents.current(); i++) {
-			if(!events[i].deleted) {
+		for (uint256 i = 1; i <= _totalEvents.current(); i++) {
+			if (!events[i].deleted) {
 				available++;
 			}
 		}
@@ -142,8 +142,8 @@ contract DappEvents is Ownable, ReentrancyGuard, ERC721 {
 		Events = new EventStruct[](available);
 		uint256 index;
 
-		for(uint256 i = 1; i <= _totalEvents.current(); i++) {
-			if(!events[i].deleted) {
+		for (uint256 i = 1; i <= _totalEvents.current(); i++) {
+			if (!events[i].deleted) {
 				Events[index++] = events[i];
 			}
 		}

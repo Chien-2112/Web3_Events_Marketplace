@@ -1,4 +1,5 @@
 require('@nomicfoundation/hardhat-toolbox')
+require("dotenv").config();
 
 module.exports = {
   defaultNetwork: 'localhost',
@@ -9,7 +10,7 @@ module.exports = {
     },
     bitfinity: {
       url: 'https://testnet.bitfinity.network',
-      accounts: [''],
+      accounts: [process.env.PRIVATE_KEY],
       chainId: 355113,
     },
   },
