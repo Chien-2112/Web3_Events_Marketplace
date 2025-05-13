@@ -1,35 +1,35 @@
-import { Menu } from '@headlessui/react'
-import { BsTrash3 } from 'react-icons/bs'
-import { BiDotsVerticalRounded } from 'react-icons/bi'
-import React from 'react'
-import Link from 'next/link'
-import { toast } from 'react-toastify'
-import { useAccount } from 'wagmi'
-import { EventStruct } from '@/utils/type.dt'
-import { GrEdit } from 'react-icons/gr'
-import { FiDollarSign } from 'react-icons/fi'
-import { deleteEvent, payout } from '@/services/blockchain'
-import { useRouter } from 'next/router'
+import { Menu } from '@headlessui/react';
+import { BsTrash3 } from 'react-icons/bs';
+import { BiDotsVerticalRounded } from 'react-icons/bi';
+import React from 'react';
+import Link from 'next/link';
+import { toast } from 'react-toastify';
+import { useAccount } from 'wagmi';
+import { EventStruct } from '@/utils/type.dt';
+import { GrEdit } from 'react-icons/gr';
+import { FiDollarSign } from 'react-icons/fi';
+import { deleteEvent, payout } from '@/services/blockchain';
+import { useRouter } from 'next/router';
 
 const EventActions: React.FC<{ event: EventStruct }> = ({ event }) => {
-  const { address } = useAccount()
-  const router = useRouter()
+  const { address } = useAccount();
+  const router = useRouter();
 
   const handleDelete = async () => {
-    if (!address) return toast.warn('Connect wallet first')
+    if (!address) return toast.warn('Connect wallet first');
 
-    const userConfirmed = window.confirm('Are you sure you want to delete this event?')
+    const userConfirmed = window.confirm('Are you sure you want to delete this event?');
     if (!userConfirmed) return
 
     await toast.promise(
       new Promise(async (resolve, reject) => {
         deleteEvent(event.id)
           .then((tx) => {
-            console.log(tx)
-            router.push('/')
-            resolve(tx)
+            console.log(tx);
+            router.push('/');
+            resolve(tx);
           })
-          .catch((error) => reject(error))
+          .catch((error) => reject(error));
       }),
       {
         pending: 'Approve transaction...',
@@ -40,19 +40,19 @@ const EventActions: React.FC<{ event: EventStruct }> = ({ event }) => {
   }
 
   const handlePayout = async () => {
-    if (!address) return toast.warn('Connect wallet first')
+    if (!address) return toast.warn('Connect wallet first');
 
-    const userConfirmed = window.confirm('Are you sure you want to payout this event?')
+    const userConfirmed = window.confirm('Are you sure you want to payout this event?');
     if (!userConfirmed) return
 
     await toast.promise(
       new Promise(async (resolve, reject) => {
         payout(event.id)
           .then((tx) => {
-            console.log(tx)
-            resolve(tx)
+            console.log(tx);
+            resolve(tx);
           })
-          .catch((error) => reject(error))
+          .catch((error) => reject(error));
       }),
       {
         pending: 'Approve transaction...',

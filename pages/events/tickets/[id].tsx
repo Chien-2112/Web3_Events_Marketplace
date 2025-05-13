@@ -13,7 +13,7 @@ const Page: NextPage<{ ticketsData: TicketStruct[] }> = ({ ticketsData }) => {
   return (
     <div>
       <Head>
-        <title>Event X | Tickets</title>
+        <title>Event C | Tickets</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

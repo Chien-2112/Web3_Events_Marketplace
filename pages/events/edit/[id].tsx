@@ -51,7 +51,7 @@ const Page: NextPage<{ eventData: EventStruct }> = ({ eventData }) => {
   return (
     <div>
       <Head>
-        <title>Event X | Edit</title>
+        <title>Event C | Edit</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

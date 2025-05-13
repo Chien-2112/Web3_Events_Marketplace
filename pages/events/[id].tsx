@@ -35,7 +35,7 @@ const Page: NextPage<ComponentProps> = ({ eventData, ticketsData }) => {
   return event ? (
     <div>
       <Head>
-        <title>Event X | {event.title}</title>
+        <title>Event C | {event.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

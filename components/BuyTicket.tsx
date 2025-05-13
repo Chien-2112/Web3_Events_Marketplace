@@ -1,33 +1,33 @@
-import { buyTicket } from '@/services/blockchain'
-import { globalActions } from '@/store/globalSlices'
-import { EventStruct, RootState } from '@/utils/type.dt'
-import React, { FormEvent, useState } from 'react'
-import { FaTimes } from 'react-icons/fa'
-import { useDispatch, useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
-import { useAccount } from 'wagmi'
+import { buyTicket } from '@/services/blockchain';
+import { globalActions } from '@/store/globalSlices';
+import { EventStruct, RootState } from '@/utils/type.dt';
+import React, { FormEvent, useState } from 'react';
+import { FaTimes } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import { useAccount } from 'wagmi';
 
 const BuyTicket: React.FC<{ event: EventStruct }> = ({ event }) => {
-  const { ticketModal } = useSelector((states: RootState) => states.globalStates)
-  const { setTicketModal } = globalActions
-  const { address } = useAccount()
-  const dispatch = useDispatch()
-  const [tickets, setTickets] = useState<number | string>('')
+  const { ticketModal } = useSelector((states: RootState) => states.globalStates);
+  const { setTicketModal } = globalActions;
+  const { address } = useAccount();
+  const dispatch = useDispatch();
+  const [tickets, setTickets] = useState<number | string>('');
 
   const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault()
-    if (!address) return toast.warn('Connect wallet first')
+    e.preventDefault();
+    if (!address) return toast.warn('Connect wallet first');
 
     await toast.promise(
       new Promise(async (resolve, reject) => {
         buyTicket(event, Number(tickets))
           .then((tx) => {
-            dispatch(setTicketModal('scale-0'))
-            setTickets('')
-            console.log(tx)
-            resolve(tx)
+            dispatch(setTicketModal('scale-0'));
+            setTickets('');
+            console.log(tx);
+            resolve(tx);
           })
-          .catch((error) => reject(error))
+          .catch((error) => reject(error));
       }),
       {
         pending: 'Approve transaction...',

@@ -66,7 +66,7 @@ const Page: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Event X | Create</title>
+        <title>Event C | Create</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
