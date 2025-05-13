@@ -1,9 +1,9 @@
-import { truncate } from '@/utils/helper'
-import { TicketStruct } from '@/utils/type.dt'
-import { BsDot } from 'react-icons/bs'
-import { FaEthereum } from 'react-icons/fa'
-import Identicon from 'react-identicons'
-import Moment from 'react-moment'
+import { truncate } from '@/utils/helper';
+import { TicketStruct } from '@/utils/type.dt';
+import { BsDot } from 'react-icons/bs';
+import { FaEthereum } from 'react-icons/fa';
+import Identicon from 'react-identicons';
+import Moment from 'react-moment';
 
 const Ticket: React.FC<{ tickets: TicketStruct[] }> = ({ tickets }) => {
   return (
@@ -51,4 +51,4 @@ const Ticket: React.FC<{ tickets: TicketStruct[] }> = ({ tickets }) => {
   )
 }
 
-export default Ticket
+export default Ticket;

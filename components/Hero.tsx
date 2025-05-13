@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from 'next/link';
+import React from 'react';
 
 const Hero: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
 
             <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
               Welcome to Web3 event market place, create vibrant expositions conneting enthusiasts
-              with experts, products and services in a decentralized anonymous enviroment.
+              with experts, products and services in a decentralized anonymous enviroments.
             </p>
 
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
@@ -51,4 +51,4 @@ const Hero: React.FC = () => {
   )
 }
 
-export default Hero
+export default Hero;

@@ -1,6 +1,6 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit'
-import Image from 'next/image'
-import React from 'react'
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import Image from 'next/image';
+import React from 'react';
 
 const ConnectBtn: React.FC<{ networks?: boolean }> = ({ networks }) => {
   return (

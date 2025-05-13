@@ -65,4 +65,4 @@ const Card: React.FC<{ event: EventStruct }> = ({ event }) => {
   )
 }
 
-export default EventList
+export default EventList;

@@ -1,15 +1,15 @@
-import Link from 'next/link'
-import ConnectBtn from './ConnectBtn'
-import React, { useState } from 'react'
-import { CgMenuLeft } from 'react-icons/cg'
-import { FaTimes } from 'react-icons/fa'
+import Link from 'next/link';
+import ConnectBtn from './ConnectBtn';
+import React, { useState } from 'react';
+import { CgMenuLeft } from 'react-icons/cg';
+import { FaTimes } from 'react-icons/fa';
 
 const Header: React.FC = () => {
   return (
     <header className="h-20 shadow-md p-5 sm:px-0 fixed z-50 top-0 right-0 left-0 bg-white">
       <main className="lg:w-2/3 w-full mx-auto flex justify-between items-center flex-wrap">
         <Link href={'/'} className="text-lg font-bold">
-          Event X
+          Event C
         </Link>
         <Desktop />
         <Mobile />
@@ -38,7 +38,7 @@ const Desktop: React.FC = () => (
 )
 
 const Mobile: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <div className="sm:hidden">
@@ -76,4 +76,4 @@ const Mobile: React.FC = () => {
   )
 }
 
-export default Header
+export default Header;
