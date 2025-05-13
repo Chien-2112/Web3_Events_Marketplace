@@ -1,8 +1,8 @@
-import { faker } from '@faker-js/faker'
-import { EventStruct, TicketStruct } from './type.dt'
+import { faker } from '@faker-js/faker';
+import { EventStruct, TicketStruct } from './type.dt';
 
 export const generateEventData = (count: number): EventStruct[] => {
-  const events: EventStruct[] = []
+  const events: EventStruct[] = [];
 
   for (let i = 0; i < count; i++) {
     const startDate = new Date(Date.now() + 10 * 60 * 1000).getTime()
@@ -27,14 +27,14 @@ export const generateEventData = (count: number): EventStruct[] => {
       refunded: faker.datatype.boolean(),
       minted: faker.datatype.boolean(),
     }
-    events.push(event)
+    events.push(event);
   }
 
   return events
 }
 
 export const generateTicketData = (count: number): TicketStruct[] => {
-  const tickets: TicketStruct[] = []
+  const tickets: TicketStruct[] = [];
 
   for (let i = 0; i < count; i++) {
     const ticket: TicketStruct = {
@@ -49,8 +49,8 @@ export const generateTicketData = (count: number): TicketStruct[] => {
       refunded: faker.datatype.boolean(),
       minted: faker.datatype.boolean(),
     }
-    tickets.push(ticket)
+    tickets.push(ticket);
   }
 
-  return tickets
+  return tickets;
 }
