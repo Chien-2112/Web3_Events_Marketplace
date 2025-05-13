@@ -154,24 +154,28 @@ const buyTicket = async(event: EventStruct, tickets: number): Promise<void> => {
 	}
 }
 
+// GET EVENTS.
 const getEvents = async(): Promise<EventStruct[]> => {
 	const contract = await getEthereumContracts();
 	const events = await contract.getEvents();
 	return structuredEvent(events);
 }
 
+// GET MY EVENTS.
 const getMyEvents = async(): Promise<EventStruct[]> => {
 	const contract = await getEthereumContracts();
 	const events = await contract.getMyEvents();
 	return structuredEvent(events);
 }
 
+// GET EVENT.
 const getEvent = async(eventId: number): Promise<EventStruct> => {
 	const contract = await getEthereumContracts();
 	const event = await contract.getSingleEvent(eventId);
 	return structuredEvent([event])[0];
 }
 
+// GET TICKETS.
 const getTickets = async(eventId: number): Promise<TicketStruct[]> => {
 	const contract = await getEthereumContracts();
 	const tickets = await contract.getTickets(eventId);
