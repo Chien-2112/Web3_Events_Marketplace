@@ -1,9 +1,5 @@
 # DappEvents Project Documentation
 
-![Events Marketplace](./screenshots/0.png)
-
-![Events Marketplace](./screenshots/1.png)
-
 ## Key Features
 
 - `createEvent`: Allows a user to create a new event.
